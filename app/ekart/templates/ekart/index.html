@@ -1,7 +1,39 @@
 {% extends "ekart/base.html" %}
 
 {% block content %}
-{% if foods %}
+
+<b>Please select image from this site:-<a href="https://worldview.earthdata.nasa.gov">link text</a>
+    
+    <a href="{% url 'ekart:add_cyclone_image' %}">upload cyclone image</a>
+
+
+
+    <p> Click the button to get your coordinates.</p>
+    </b>
+   <button onclick="getLocation()">GET CO-CORDINATES</button>
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";}
+    }
+    
+function showPosition(position) {
+    x.innerHTML="Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+
+<form>
+    <button class="button button3" type="button" onclick="parent.location='action.php'">PREDICT</button>
+</form>
+    
+<!-- {% if foods %}
 <div class="container-fluid">
     <div class="row">
         {% for food in foods %}
@@ -31,5 +63,6 @@
 </div>
 {% else %}
 <a type="button" class="btn btn-success btn-lg" href="{% url 'ekart:add_food' %}"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add Food</a>
-{% endif %}
+{% endif %} -->
 {% endblock content %}
+

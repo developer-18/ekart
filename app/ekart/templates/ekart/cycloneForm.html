@@ -1,0 +1,10 @@
+{% extends "ekart/index.html" %}
+
+{% block title %}add real time image of cyclone{% endblock title %}
+{% block content %}
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary" type="submit">{{ caption }}</button>
+    </form>
+{% endblock content %}
