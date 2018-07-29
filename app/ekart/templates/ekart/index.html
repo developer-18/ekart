@@ -1,0 +1,35 @@
+{% extends "ekart/base.html" %}
+
+{% block content %}
+{% if foods %}
+<div class="container-fluid">
+    <div class="row">
+        {% for food in foods %}
+            <div class="col-md-3">
+                <div class="food">
+                    <a href="{% url 'ekart:details' food.id %}">
+                        <img src="{{ food.food_logo.url }}" alt="food_logo" class="img-responsive">
+                    </a>
+                    <div class="caption">
+                        <h3>{{ food.food_title }}</h3>
+                        <h4>{{ food.price }}</h4>
+                        <a href="{% url 'ekart:details' food.id %}" class="btn btn-primary">View</a>
+                        <a href="{% url 'ekart:delete_food' food.id %}" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span></a>
+                        <a href="{% url 'ekart:update_food' food.id %}" class="btn btn-default"><span class="glyphicon glyphicon-cloud-upload"></span>&nbsp;Update</a>
+                        <a href="{% url 'ekart:favourite_food' food.id %}" role="button" class="btn btn-default">
+                            {% if food.is_favourite %}
+                            <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="star" class="img-responsive" width="18px">
+                            {% else %}
+                            <span class="glyphicon glyphicon-star-empty"></span>                                                
+                            {% endif %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+<a type="button" class="btn btn-success btn-lg" href="{% url 'ekart:add_food' %}"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add Food</a>
+{% endif %}
+{% endblock content %}

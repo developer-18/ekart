@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %}Viberr{% endblock title %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="shortcut icon" type="image/png" href="{%  static 'images/favicon.ico' %}"/> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{% url 'ekart:index' %}">Viberr</a>
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>   
+
+            <div class="collapse navbar-collapse" id="topNavBar">
+                <ul class="nav navbar-nav">
+                    <li class="{% block register_active %}{% endblock register_active %}"><a href="{% url 'ekart:register' %}"><span class="glyphicon glyphicon-registration-mark"></span>&nbsp; Register</a></li>
+                    <li class="{% block login_active %}{% endblock login_active %}"><a href="{% url 'ekart:user_login' %}"><span class="glyphicon glyphicon-log-in"></span>&nbsp; Login</a></li>
+                </ul>
+            </div>
+        </div>        
+    </nav>
+    {% block content %}
+    
+    {% endblock content %}
+</body>
+</html>

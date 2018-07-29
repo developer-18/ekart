@@ -1,0 +1,12 @@
+{% extends "ekart/index.html" %}
+
+{% block title %}Create Food{% endblock title %}
+
+{% block content %}
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% comment %} {{ form.as_p }} {% endcomment %}
+        {% include "ekart/form_template.html" %}
+        <button class="btn btn-primary" type="submit">{{ caption }}</button>
+    </form>
+{% endblock content %}

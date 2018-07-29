@@ -1,0 +1,13 @@
+{% extends "ekart/base.html" %}
+{% block register_active %}active{% endblock register_active %}
+{% block title %}User Registration{% endblock title %}
+
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {% include "ekart/form_template.html" %}
+        <button class="btn btn-primary" type="submit">{{ caption }}</button>
+    </form>
+    <p>Already have an account,<span><a href="{% url 'ekart:user_login' %}">Login</a></span></p>
+{% endblock content %}
+   

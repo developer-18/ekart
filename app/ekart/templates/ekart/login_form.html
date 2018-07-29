@@ -1,0 +1,15 @@
+{% extends "ekart/base.html" %}
+{% block title %}LogIN{% endblock title %}
+{% block login_active %} active {% endblock login_active %}
+
+{% block content %}
+    {% if error_message %}
+        <p class="text-danger small">{{ error_message }}</p>
+    {% endif %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {% include "ekart/form_template.html" %}
+        <button class="btn btn-success" type="submit">Login</button>
+    </form>
+    <p>Not have an account,<a class="links_flipkart_footer" href="{% url 'ekart:register' %}">Register</a></p>
+{% endblock content %}

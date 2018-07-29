@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ekart | Index</title>
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'ekart/icon/favicon.ico' %}" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Sansita" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'ekart/css/main.css' %}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="{% static 'ekart/js/main.js' %}"></script>
+</head>
+<body>
+    <nav class="navbar navbar-static-top navbar-inverse container-fluid">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{% url 'ekart:index' %}"><img src="{% static 'ekart/icon/favicon.ico' %}" alt="e" class="img-responsive img-rounded" style="padding-bottom:2px;">kart</a>
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavBar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <div class="collapse navbar-collapse" id="topNavBar">
+                    <form class="navbar-form navbar-left" action="#" role="search" method="get">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input class="form-control" role="search" type="text" name="q" placeholder="Search for Products, brands and much more">
+                        </div>
+                        <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </form>
+                    <ul class=" nav navbar-nav navbar-right">
+                        <li>
+                            <a href="{% url 'ekart:user_login' %}">
+                                {% if username %}
+                                {{ username }}
+                                {% else %}
+                                Login & Signup
+                                {% endif %}
+                            </a>
+                        </li>
+                        <li class="upper-links dropdown"><a class="links" href="#">More</a>
+                            <ul class="dropdown-menu">
+                                <li class="profile-li"><a class="profile-links" href="#">Sell on flipkart</a></li>
+                                <li class="profile-li"><a class="profile-links" href="#">24&times;7 customer care</a></li>
+                                <li class="profile-li"><a class="profile-links" href="#">Advertise with us</a></li>
+                                <li class="profile-li"><a class="profile-links" href="#"><span class="glyphicon glyphicon-download"></span>&nbsp; Download app</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><span class="glyphicon glyphicon-plus"></span>&nbsp;Cart</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}
+    
+    {% endblock content %}
+
+    <div class="col-md-12 footer_scanfcode">
+        <div class="col-md-4">
+            <h6 style='font-weight:500;'>HELP</h6>
+            <a href='#' class='links_flipkart_footer'>Payments</a>
+            <a href='#' class='links_flipkart_footer'>Saved Cards</a> 
+            <a href='#' class='links_flipkart_footer'>Shipping</a>
+            <a href='#' class='links_flipkart_footer'>Cancellations & Return</a>
+            <a href='#' class='links_flipkart_footer'>FAQ</a> 
+            <a href='#' class='links_flipkart_footer'>Report Infringement</a>
+        </div>
+        <div class="col-md-4">
+            <h6 style='font-weight:500;'>FLIPKART</h6>
+            <a href='#' class='links_flipkart_footer'>Contact Us</a>
+            <a href='#' class='links_flipkart_footer'>About Us</a>
+            <a href='#' class='links_flipkart_footer'>Careers</a>
+            <a href='#' class='links_flipkart_footer'>Flipkart Stories</a> 
+            <a href='#' class='links_flipkart_footer'>Press</a>
+            <a href='#' class='links_flipkart_footer'>Sell on Flipkart</a>
+        </div>
+        <div class="col-md-4">
+            <h6 style='font-weight:500;'>MISC</h6>
+                <a href='#' class='links_flipkart_footer'>Online Shopping</a>
+                <a href='#' class='links_flipkart_footer'>About Us</a> 
+                <a href='#' class='links_flipkart_footer'>Affiliate Program </a>
+                <a href='#' class='links_flipkart_footer'>Gift Card</a> 
+                <a href='#' class='links_flipkart_footer'>Flipkart First Subscription</a>
+            <div class='flip_image'></div>
+        </div>
+        <div class="col-md-12 row_cnt_sc">
+            <div class="row">
+                <span>
+                    <span>Policies:</span>
+                    <a href="#">Returns Policy</a>
+                    <a href="#">Terms of use</a>
+                    <a href="#">Security</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Infringement</a>
+                </span>
+                <span>Powered by Manish</span>
+                <span class="icons_sc">Keep in touch 
+                    <i class="fa fa-facebook"></i>
+                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-google-plus"></i>
+                    <i class="fa fa-youtube-play"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
